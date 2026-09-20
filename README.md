@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Linha & Laço — Next.js
 
-## Getting Started
+Aplicação única para gestão de ateliê, criada em Next.js, TypeScript, Supabase e preparada para deploy na Vercel e instalação como PWA.
 
-First, run the development server:
+## Recursos
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Login, recuperação e alteração de senha com Supabase Auth.
+- Dashboard, clientes, pedidos, agenda, financeiro simplificado, relatórios e anotações formatadas.
+- Produtos e serviços com materiais, custos de mão de obra e indiretos, custo de produção e preço sugerido.
+- Tabelas de preços com margem percentual reutilizável.
+- PWA instalável em desktop e smartphone, com cache do aplicativo, página offline e cópia local dos dados já carregados.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Estrutura
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `src/`: aplicação Next.js.
+- `supabase/migrations/`: banco PostgreSQL, RLS e modelo de custos/formação de preço.
+- `public/sw.js`: service worker do PWA.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Desenvolvimento
 
-## Learn More
+1. Copie `.env.example` para `.env.local`.
+2. Informe `NEXT_PUBLIC_SUPABASE_URL` e `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`.
+3. Aplique todas as migrações em um projeto Supabase exclusivo da Linha & Laço.
+4. Execute `npm install` e `npm run dev`.
 
-To learn more about Next.js, take a look at the following resources:
+## PWA e uso offline
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Após o primeiro acesso com internet, instale pelo comando “Instalar aplicativo” do navegador. O service worker mantém a interface disponível sem rede e o navegador preserva localmente o último estado carregado e os novos cadastros feitos offline.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Alterações feitas sem conexão ainda não são sincronizadas automaticamente ao Supabase quando a rede retorna; elas permanecem no dispositivo até a próxima etapa de sincronização offline.
 
-## Deploy on Vercel
+## Publicação
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Importe este diretório na Vercel, conecte o repositório `RKXP-Software/linha-e-laco-nextjs` e configure as duas variáveis públicas do Supabase. Use um projeto Supabase separado para desenvolvimento e produção.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Nunca use nem publique uma chave `service_role` no navegador.
