@@ -34,3 +34,9 @@ export function calculateSuggestedPrice(productionCost: number, markupPercentage
 }
 
 export const money = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' })
+
+export function usernameToAuthEmail(username: string) {
+  const normalized = username.trim().toLowerCase()
+  if (!/^[a-z0-9][a-z0-9._-]{2,31}$/.test(normalized)) return null
+  return `${normalized}@users.example.com`
+}

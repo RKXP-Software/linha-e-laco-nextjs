@@ -4,7 +4,7 @@ Aplicação única para gestão de ateliê, criada em Next.js, TypeScript, Supab
 
 ## Recursos
 
-- Login, recuperação e alteração de senha com Supabase Auth.
+- Login por usuário e alteração de senha com Supabase Auth.
 - Dashboard, clientes, pedidos, agenda, financeiro simplificado, relatórios e anotações formatadas.
 - Produtos e serviços com materiais, custos de mão de obra e indiretos, custo de produção e preço sugerido.
 - Tabelas de preços com margem percentual reutilizável.

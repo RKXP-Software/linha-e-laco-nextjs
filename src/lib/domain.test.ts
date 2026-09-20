@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { calculateMaterialCost, calculateOrderTotal, calculateSuggestedPrice, nextOrderStatus } from './domain'
+import { calculateMaterialCost, calculateOrderTotal, calculateSuggestedPrice, nextOrderStatus, usernameToAuthEmail } from './domain'
 
 describe('order workflow', () => {
   it('advances only through the agreed commercial stages', () => {
@@ -13,6 +13,12 @@ describe('order workflow', () => {
   it('calculates item totals and never returns a negative total', () => {
     expect(calculateOrderTotal([{ quantity: 2, unitPrice: 80 }, { quantity: 1, unitPrice: 35 }])).toBe(195)
     expect(calculateOrderTotal([{ quantity: 1, unitPrice: 20 }], 30)).toBe(0)
+  })
+
+  it('maps a valid user name to the private Supabase email convention', () => {
+    expect(usernameToAuthEmail(' Marli ')).toBe('marli@users.example.com')
+    expect(usernameToAuthEmail('ab')).toBeNull()
+    expect(usernameToAuthEmail('marli!')).toBeNull()
   })
 
   it('adds materials and applies the configured price-table markup', () => {
