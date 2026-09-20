@@ -20,7 +20,7 @@ Aplicação única para gestão de ateliê, criada em Next.js, TypeScript, Supab
 
 1. Copie `.env.example` para `.env.local`.
 2. Informe `NEXT_PUBLIC_SUPABASE_URL` e `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`.
-3. Aplique todas as migrações em um projeto Supabase exclusivo da Linha & Laço.
+3. Aplique as migrações em ordem crescente de versão, incluindo as de recuperação, em um projeto Supabase exclusivo da Linha & Laço.
 4. Execute `npm install` e `npm run dev`.
 
 ## PWA e uso offline
