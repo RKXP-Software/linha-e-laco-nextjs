@@ -104,4 +104,4 @@ $$;
 -- Dedicated private bucket for future customer/order attachments.
 insert into storage.buckets (id, name, public) values ('linha-e-laco-attachments', 'linha-e-laco-attachments', false) on conflict (id) do nothing;
 drop policy if exists attachments_owner_access on storage.objects;
-create policy attachments_owner_access on storage.objects for all to authenticated using (bucket_id = 'linha-e-laco-attachments' and owner_id = (select auth.uid())) with check (bucket_id = 'linha-e-laco-attachments' and owner_id = (select auth.uid()));
+create policy attachments_owner_access on storage.objects for all to authenticated using (bucket_id = 'linha-e-laco-attachments' and owner_id = (select auth.uid()::text)) with check (bucket_id = 'linha-e-laco-attachments' and owner_id = (select auth.uid()::text));
