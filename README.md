@@ -6,9 +6,9 @@ Aplicação única para gestão de ateliê, criada em Next.js, TypeScript, Supab
 
 - Login por usuário e alteração de senha com Supabase Auth.
 - Dashboard, clientes, pedidos, agenda, financeiro simplificado, relatórios e anotações formatadas.
-- Catálogo global de materiais com unidades conversíveis, receitas de produtos, custos de produção e atualização automática de preços.
+- Catálogo de produtos e materiais com fotos privadas, unidades conversíveis, receitas pesquisáveis, preço por custo com margem ou valor fixo.
 - Orçamentos com múltiplos itens, condições comerciais, fotos, prévia e PDF profissional para download.
-- CRUD com confirmação de exclusão e logs de auditoria para operações comerciais.
+- Formas de pagamento reutilizáveis, sugestão de baixa na entrega, CRUD com confirmação de exclusão e logs de auditoria.
 
 ## Estrutura
 
@@ -20,7 +20,7 @@ Aplicação única para gestão de ateliê, criada em Next.js, TypeScript, Supab
 
 1. Copie `.env.example` para `.env.local`.
 2. Informe `NEXT_PUBLIC_SUPABASE_URL` e `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`.
-3. Aplique as migrações em ordem crescente de versão, incluindo `202609200004_commercial_materials_audit.sql`, em um projeto Supabase exclusivo da Linha & Laço.
+3. Aplique as migrações em ordem crescente de versão, incluindo `202609210005_catalog_media_payments_pricing.sql`, em um projeto Supabase exclusivo da Linha & Laço.
 4. Execute `npm install` e `npm run dev`.
 
 ## PWA e uso offline
